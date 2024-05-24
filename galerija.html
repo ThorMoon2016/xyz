@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="hr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prodaja Cvijeća</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.css"/>
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick-theme.min.css"/>
+    <script src="index.js"></script>
+
+
+
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <a href="index.html"><img src="images/11.png" alt="Logo Cvijećara"></a>
+        </div>
+        <div class="menu-toggle">
+            <div class="menu-line"></div>
+            <div class="menu-line"></div>
+            <div class="menu-line"></div>
+        </div>
+    </header>
+
+    <nav class="menu">         
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="buketi.html" style="color: red;">Akcija</a></li>
+
+            <li><a href="#">Veliki Buketi</a></li>
+            <li><a href="#">Vjenčanja</a></li>
+            <li><a href="#">Kontakt</a></li>
+            <li><a href="#">O nama</a></li>
+            <li><a href="korpa.html">Korpa <i class="fas fa-shopping-cart"></i></a></li>
+
+            <!-- Dodajte ostale opcije menija ovdje -->
+        </ul>
+    </nav>
+
+
+    <div style="text-align: center;">
+        <p><strong>Dobrodošli na našu stranicu!</strong> Uživajte u cvjetnim kreacijama cvjećara <strong>NERINA & NERINA 2</strong>!</p>
+    
+        <p>Tražite buket cvijeća ili cvijeće na poklon? Trebate cvjetnu dekoraciju kojom ćete ukrasiti Vaš dom, vrt ili poslovni prostor?</p>
+    
+        <p>Naši buketi cvijeća i cvjetne dekoracije dostupni su Vam svakodnevno na dvije atraktivne lokacije u gradu, te mogu biti dostavljeni i na željenu adresu na području cijelog grada Sarajeva i okolice.</p>
+    
+        <p>Za uvid u bogatu ponudu cvjećara <strong>NERINA</strong>, posjetite Galeriju naše web stranice.</p>
+    </div>
+    
+
+
+    <style>
+        /* Define the style for the purple outline box around the images */
+        .slick-slide {
+          margin: 0 10px; /* Adjust this value to set the distance between slides */
+          outline: 2px solid purple; /* Purple outline */
+          padding: 5px; /* Padding inside the outline */
+          box-sizing: border-box; /* Ensure padding is included in the total width */
+          width: calc(33.3333% - 20px); /* Show three slides at once */
+        }
+    
+        /* Set the width and height of the images inside the slider */
+        .slick-slide img {
+          width: 100%;
+          height: auto;
+        }
+      </style>
+    </head>
+    <body>
+    
+    <div class="slick-container">
+      <div class="slick">
+        <!-- Repeat this slide 10 times -->
+        <div><img src="images/d2.jpg" alt="Image 1"></div>
+        <div><img src="images/D3.jpeg" alt="Image 2"></div>
+        <div><img src="images/D4.jpeg" alt="Image 3"></div>
+        <div><img src="images/d5.jpg" alt="Image 1"></div>
+        <div><img src="images/d6.jpg" alt="Image 2"></div>
+        <div><img src="images/ferr-removebg-preview.png" alt="Image 3"></div>
+        <!-- ... Repeat 10 times ... -->
+      </div>
+    </div>
+    
+    <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <!-- Slick Slider JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js"></script>
+    <!-- Custom Script -->
+    <script>
+      $(document).ready(function(){
+        $('.slick').slick({
+          slidesToShow: 3, // Show three slides at once
+          slidesToScroll: 1,
+          autoplay: true,
+          autoplaySpeed: 2000, // Change this value to adjust slide speed
+          infinite: true,
+          pauseOnHover: true,
+          responsive: [
+            {
+              breakpoint: 768,
+              settings: {
+                slidesToShow: 1 // Show only one slide on smaller screens
+              }
+            }
+          ]
+        });
+      });
+    </script>
+
+    
+    
+    <img src="images/hero_png.png" alt="Cvijet glavni" style="margin-top: 30px; margin-bottom: 30px; max-width: 100%; height: auto; margin-left: auto; margin-right: auto;">
+
+
+    <hr style="border: 1px solid rgb(212, 212, 212); width: 90%;">
+
+
+
+    
+    
+    
+
+
+
+
+
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="social-icons">
+                <a href="#"><i class="fab fa-facebook"></i></a>
+                <a href="#"><i class="fab fa-viber"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+              </div>
+              
+            <div class="copyright">
+                &copy; 2023. Sva prava zadržana.
+            </div>
+        </div>
+    </footer>
+    
+
+
+
+</body>
+</html>

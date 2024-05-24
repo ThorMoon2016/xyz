@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="hr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prodaja Cvijeća</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <script src="https://www.paypal.com/sdk/js?client-id=Afzc1IlgRQANkX3NGrGcsvTxA5EtNwUQZeLbuicoNCM-hZxx13uq2LyJESOmeue6FLZJELnCp4xTOoXn"></script>
+
+    <script src="index.js"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=VAŠ_API_KLJUČ&callback=initMap" async defer></script>
+    <script>
+        function initMap() {
+            var myLatLng = { lat: 43.849388, lng: 18.397976 }; // Koordinate za Zmaja od Bosne 41, Sarajevo
+            var map = new google.maps.Map(document.getElementById('map'), {
+                zoom: 15,
+                center: myLatLng
+            });
+            var marker = new google.maps.Marker({
+                position: myLatLng,
+                map: map,
+                title: 'Cvjećara NERINA 2, Zmaja od Bosne 41, Sarajevo'
+            });
+        }
+    </script>
+    
+
+
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <a href="index.html"><img src="images/11.png" alt="Logo Cvijećara"></a>
+        </div>
+      
+        
+        <div class="menu-toggle">
+            <div class="menu-line"></div>
+            <div class="menu-line"></div>
+            <div class="menu-line"></div>
+        </div>
+    </header>
+    <nav class="menu">
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="buketi.html" style="color: red;">Akcija</a></li>
+
+            <li><a href="godisnjice.html">Godišnjice</a></li>
+            <li><a href="#">Vjenčanja</a></li>
+            <li><a href="galerija.html">Galerija</a></li>
+            <li><a href="contact.html">Kontakt</a></li>
+            <li><a href="about.html">O nama</a></li>
+            <li><a href="korpa.html">Korpa <i class="fas fa-shopping-cart"></i></a></li>
+
+            <!-- Dodajte ostale opcije menija ovdje -->
+        </ul>
+    </nav>
+
+    
+
+    <div style="text-align: center;">
+        <p><strong>Dobrodošli na našu stranicu!</strong> Uživajte u cvjetnim kreacijama cvjećara <strong>NERINA & NERINA 2</strong>!</p>
+    
+        <p>Tražite buket cvijeća ili cvijeće na poklon? Trebate cvjetnu dekoraciju kojom ćete ukrasiti Vaš dom, vrt ili poslovni prostor?</p>
+    
+        <p>Naši buketi cvijeća i cvjetne dekoracije dostupni su Vam svakodnevno na dvije atraktivne lokacije u gradu, te mogu biti dostavljeni i na željenu adresu na području cijelog grada Sarajeva i okolice.</p>
+    
+        <p>Za uvid u bogatu ponudu cvjećara <strong>NERINA</strong>, posjetite Galeriju naše web stranice.</p>
+    </div>
+    
+
+    
+    <img src="images/hero_png.png" alt="Cvijet glavni" style="margin-top: 30px; margin-bottom: 30px; max-width: 100%; height: auto; margin-left: auto; margin-right: auto;">
+
+
+    <hr style="border: 1px solid rgb(212, 212, 212); width: 80%;">
+
+
+
+
+
+    
+
+    <div class="krugovi-container">
+        <div class="krug">
+            <div class="ikonica">
+                <a href="buketi.html">
+                    <i class="fas fa-star"></i>
+                  </a>
+                  
+               
+            </div>
+        </div>
+        <div class="krug">
+            <div class="ikonica">
+                <a href="buketi.html">
+                <i class="fas fa-percent"></i>
+            </a>
+                
+            </div>
+        </div>
+        <div class="krug">
+            <div class="ikonica">
+                <i class="fas fa-gift"></i>
+                
+            </div>
+        </div>
+        <div class="krug">
+            <div class="ikonica">
+                <i class="fas fa-heart"></i>
+                
+            </div>
+        </div>
+        <div class="krug">
+            <div class="ikonica">
+                <i class="fas fa-birthday-cake"></i>
+                
+            </div>
+        </div>
+        <div class="krug">
+            <div class="ikonica">
+                <i class="fas fa-baby"></i>
+                
+            </div>
+        </div>
+        
+               
+            </div>
+        </div>
+    </div>  
+
+
+    <hr style="border: 1px solid rgb(212, 212, 212); width: 80%;">
+
+   
+    <div class="store-info">
+        <h2>Cvjećara NERINA 2</h2>
+        <p>Shopping centar Robot Novo Sarajevo (kod Socijalnog)</p>
+        <p>Zmaja od Bosne 41</p>
+        <p>Sarajevo</p>
+        <p>Tel: <a href="tel:+387033523879">033 523 879</a></p>
+        <p>Mob: <a href="tel:+387061186010">061 186 010</a></p>
+        <p>E-mail: <a href="mailto:info@nerina.ba">info@nerina.ba</a></p>
+    </div>
+    
+    
+
+    
+
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="social-icons">
+                <a href="https://www.facebook.com/nerina.ba/"><i class="fab fa-facebook"></i></a>
+                <a href="#"><i class="fab fa-viber"></i></a>
+                <a href="https://www.instagram.com/cvjecaranerina/?hl=en"><i class="fab fa-instagram"></i></a>
+              </div>
+              
+            <div class="copyright">
+                &copy; 2023. Sva prava zadržana.
+            </div>
+        </div>
+    </footer>
+    
+
+
+
+</body>
+</html>

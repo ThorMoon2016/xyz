@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="hr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ROBOT</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <script src="https://www.paypal.com/sdk/js?client-id=Afzc1IlgRQANkX3NGrGcsvTxA5EtNwUQZeLbuicoNCM-hZxx13uq2LyJESOmeue6FLZJELnCp4xTOoXn"></script>
+    
+
+    
+
+    <script src="index.js"></script>
+
+
+
+</head>
+
+<style>
+    body {
+        margin: 0;
+        padding: 0;
+        font-family: Arial, sans-serif;
+    }
+
+    .header {
+       
+        position: relative;
+        z-index: 1;
+       
+        background-size: cover;
+    }
+
+    .text-animation {
+        min-height: 300px; /* Visina text-animation sekcije */
+        position: relative;
+      
+    }
+
+    .full-background {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 80%;
+        z-index: 0;
+        background: url('images/slikavoce.jpg') no-repeat;
+        background-size: cover;
+        
+       
+    }
+
+
+/* Media upit za mobilne uređaje */
+@media only screen and (max-width: 768px) {
+   
+
+    .full-background {
+        background: url('images/mobBG1.png') no-repeat;
+        background-size: cover;
+        height: 115%;
+       
+    }
+}
+</style>
+
+
+<body>
+      <div class="full-background"></div>
+    <header class="header">
+        <div class="logo">
+            <a href="index.html"><img src="images/logo.png" alt="Logo Cvijećara"></a>
+        </div>
+            
+        </div>
+      
+        
+        <div class="menu-toggle">
+            <div class="menu-line"></div>
+            <div class="menu-line"></div>
+            <div class="menu-line"></div>
+        </div>
+    
+    <nav class="menu">
+        <ul>
+            <li><a href="index.html">HOME</a></li>
+            <li><a href="buketi.html" style="color: red;">AKCIJA</a></li>
+            <li><a href="galerija.html">GALERIJA</a></li>
+            <li><a href="contact.html">KONTAKT</a></li>
+            <li><a href="about.html">O NAMA</a></li>
+            <li><a href="korpa.html">KORPA <i class="fas fa-shopping-cart"></i></a></li>
+
+            <!-- Dodajte ostale opcije menija ovdje -->
+        </ul>
+    </nav>
+</header>
+
+
+    
+
+
+<div class="text-animation" style="text-align: center; ">
+      
+    <div style="text-align: center;">
+        <hr style="border: 1px solid #f0c769; width: 10%; background-image: linear-gradient(90deg, #f0c769 2%, #ffe28b 42%, #d0a651 71%, #ffecb2); -webkit-background-clip: text; background-clip: text; color: transparent; margin-top: 1px; margin-right: 1265px;">
+    
+        <p style="font-weight: bold; margin-top: 1px; margin-right: 850px; font-size: 20px;">SLATKIŠI
+    
+        <hr style="border: 1px solid #f0c769; width: 10%; background-image: linear-gradient(90deg, #f0c769 2%, #ffe28b 42%, #d0a651 71%, #ffecb2); -webkit-background-clip: text; background-clip: text; color: transparent; margin-top: -10px; margin-right: 1265px;">
+   
+        <p style="font-weight: bold; margin-top: 1px; margin-right: 850px; font-size: 80px;">30 GODINA <br> TC ROBOT </p>
+
+        
+
+
+        <p style="font-weight: bold; margin-top: -80px; margin-right: 850px; font-size: 20px; color: aliceblue;">Od male cvjecare, do mjesta gdje smo danas  ne bismo mogli to postići bez vas. <br> Tako, dok ove godine slavimo 25 godina, razmišljamo o tome i o svim posebnim trenutcima koje smo podijelili.</p>
+
+        <p style="font-weight: bold; margin-top: 40px; margin-right: 850px; font-size: 20px; color: aliceblue;">Pogledaj kako se mozes pridruziti nasoj proslavi</p>
+
+   
+        <div class="celebration-box">
+            <p>Proslavite sa nama</p>
+          </div>
+
+
+    </div>
+    
+    
+    
+</div>
+</div>
+    
+
+
+
+<style>
+    @media only screen and (max-width: 768px) {
+        /* Stilovi za mobilne uređaje */
+        .text-animation div {
+            margin-right: -850px; /* Prilagodite margine prema potrebi */
+        }
+
+        .text-animation p {
+            margin-right: -30px; /* Prilagodite margine prema potrebi */
+            margin-top: 10px !important;
+            font-size: 22px !important; /* Dodajte !important kako biste osigurali primjenu veličine fonta */
+        }
+
+        .text-animation hr {
+            margin-right: 960px !important; /* Prilagodite margine prema potrebi */
+        }
+
+        /* Prilagodba za "ANNIVERSARY" - Smanji veličinu fonta */
+        .text-animation p:nth-child(2) {
+            font-size: 16px !important; /* Smanjite veličinu fonta prema potrebi */
+        }
+
+        /* Prilagodba za "200 YEARS" - Povećaj veličinu fonta */
+        .text-animation p:nth-child(4) {
+            font-size: 40px !important; /* Povećajte veličinu fonta prema potrebi */
+        }
+
+        /* Prilagodba za "From a little grocery shop..." - Smanji veličinu fonta */
+        .text-animation p:nth-last-child(3) {
+            font-size: 18px !important; /* Smanjite veličinu fonta prema potrebi */
+        }
+
+        /* Prilagodba za "Previous last paragraph" - Povećaj veličinu fonta */
+        .text-animation p:nth-last-child(2) {
+            font-size: 14px !important; /* Povećajte veličinu fonta prema potrebi */
+        }
+
+        /* Prilagodba za "See how you can join in the celebrations." - Smanji veličinu fonta */
+        .text-animation p:last-child {
+            font-size: 16px !important; /* Smanjite veličinu fonta prema potrebi */
+        }
+    }
+</style>
+
+
+
+      
+      
+   
+
+      
+
+    
+
+    
+  <!-- Sadržaj -->
+  <div id="content">
+    <!-- Tekst "Voće i Povrće" -->
+    <div class="kategorija">
+        <h2>Slatkiši/h2>
+    </div>
+
+    
+<!-- HTML dio za jabuku -->
+
+
+<!-- JavaScript dio -->
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+    const addToCartButtons = document.querySelectorAll('.dodaj-u-korpu');
+
+    addToCartButtons.forEach(button => {
+        button.addEventListener('click', function() {
+            const productId = this.getAttribute('data-product-id'); 
+            const productName = this.parentElement.querySelector('h3').textContent;
+            let productPrice = parseFloat(this.parentElement.querySelector('.product-price').textContent); // Pretvaranje cijene u broj
+            const productQuantity = this.parentElement.querySelector('.quantity-input').value;
+            
+            // Izračunajte novu cijenu na osnovu količine
+            productPrice *= parseFloat(productQuantity);
+
+            const productInfo = {
+                id: productId,
+                naziv: productName,
+                cijena: productPrice.toFixed(2), // Zaokružujemo cijenu na dvije decimale
+                količina: productQuantity,
+                imageUrl: `images/${productId}.png`
+            };
+
+            let proizvodiUKorpi = JSON.parse(localStorage.getItem('proizvodiUKorpi')) || [];
+            proizvodiUKorpi.push(productInfo);
+            localStorage.setItem('proizvodiUKorpi', JSON.stringify(proizvodiUKorpi));
+
+            alert('Proizvod je dodat u korpu!');
+        });
+    });
+});
+
+    </script>
+    
+
+</div>
+   
+
+<!-- slatkisi.html -->
+
+<div id="proizvodi-container"></div>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const proizvodiContainer = document.getElementById('proizvodi-container');
+
+        // Dohvati proizvode iz localStorage-a
+        const proizvodi = JSON.parse(localStorage.getItem('proizvodi')) || [];
+
+        // Prikazi svaki proizvod
+        proizvodi.forEach(function(proizvod) {
+            if (proizvod.stranica === 'slatkisi.html') {
+                const productNox = document.createElement('div');
+                productNox.classList.add('product-nox');
+
+                const img = document.createElement('img');
+                img.src = 'images/' + proizvod.slika;
+                img.alt = proizvod.naziv;
+                productNox.appendChild(img);
+
+                const naziv = document.createElement('h3');
+                naziv.textContent = proizvod.naziv;
+                productNox.appendChild(naziv);
+
+                const cijena = document.createElement('p');
+                cijena.classList.add('product-price');
+                cijena.textContent = proizvod.cijena + 'KM';
+                productNox.appendChild(cijena);
+
+                // Dodaj productNox na proizvodiContainer
+                proizvodiContainer.appendChild(productNox);
+            }
+        });
+    });
+</script>
+
+
+
+<style>
+    
+
+/* Stilizacija proizvoda za mobilne uređaje */
+@media screen and (max-width: 767px) {
+    .product-nox {
+        width: 38%;
+        margin: 1%;
+        float: left;
+        transform: translateY( 600px);
+     
+    }
+}
+
+</style>
+    
+
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="social-icons">
+                <a href="https://www.facebook.com/nerina.ba/"><i class="fab fa-facebook"></i></a>
+                <a href="#"><i class="fab fa-viber"></i></a>
+                <a href="https://www.instagram.com/cvjecaranerina/?hl=en"><i class="fab fa-instagram"></i></a>
+              </div>
+              
+            <div class="copyright">
+                &copy; 2023. Sva prava zadržana.
+            </div>
+        </div>
+    </footer>
+    
+    <style>
+        @media only screen and (max-width: 768px) {
+            .footer {
+                margin-top: 700px; /* Prilagodite visinu margine prema potrebi */
+            }
+        }
+    </style>
+    
+
+
+
+</body>
+</html>

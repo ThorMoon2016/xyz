@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="hr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prodaja Cvijeća</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <script src="https://www.paypal.com/sdk/js?client-id=Afzc1IlgRQANkX3NGrGcsvTxA5EtNwUQZeLbuicoNCM-hZxx13uq2LyJESOmeue6FLZJELnCp4xTOoXn"></script>
+    
+
+    
+
+    <script src="index.js"></script>
+
+
+
+</head>
+
+<style>
+    body {
+        margin: 0;
+        padding: 0;
+        font-family: Arial, sans-serif;
+    }
+
+    .header {
+       
+        position: relative;
+        z-index: 1;
+       
+        background-size: cover;
+    }
+
+    .text-animation {
+        min-height: 300px; /* Visina text-animation sekcije */
+        position: relative;
+      
+    }
+
+    .full-background {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 80%;
+        z-index: 0;
+        
+        background-size: cover;
+        
+       
+    }
+
+
+/* Media upit za mobilne uređaje */
+@media only screen and (max-width: 768px) {
+   
+
+    .full-background {
+  
+        background-size: cover;
+        height: 115%;
+       
+    }
+}
+</style>
+
+
+<body>
+      <div class="full-background"></div>
+      <header class="header">
+        <div class="logo">
+            <a href="index.html"><img src="images/logo.png" alt="Logo Cvijećara"></a>
+        </div>
+        <div class="search-box">
+            <div class="search-icon">
+                <i class="fas fa-search"></i>
+            </div>
+            <input type="text" placeholder="Pretraži">
+        </div>
+        <div class="menu-toggle">
+            <div class="menu-line"></div>
+            <div class="menu-line"></div>
+            <div class="menu-line"></div>
+        </div>
+    
+        <nav class="menu">
+            <ul>
+                <li><a href="index.html">HOME</a></li>
+                <li><a href="buketi.html">AKCIJA</a></li>
+                <li><a href="galerija.html">GALERIJA</a></li>
+                <li><a href="contact.html">KONTAKT</a></li>
+                <li><a href="about.html">O NAMA</a></li>
+                <li><a href="korpa.html">KORPA <i class="fas fa-shopping-cart"></i></a></li>
+    
+                <!-- Dodajte ostale opcije menija ovdje -->
+            </ul>
+        </nav>
+    </header>
+    
+  <!-- pregled.html -->
+<div id="proizvodi-container"></div>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const proizvodiContainer = document.getElementById('proizvodi-container');
+
+        // Dohvati proizvode iz localStorage-a
+        const proizvodi = JSON.parse(localStorage.getItem('proizvodi')) || [];
+
+        // Prikazi svaki proizvod
+        proizvodi.forEach(function(proizvod) {
+            const productNox = document.createElement('div');
+            productNox.classList.add('product-nox');
+
+            const img = document.createElement('img');
+            img.src = 'images/' + proizvod.slika;
+            img.alt = proizvod.naziv;
+            productNox.appendChild(img);
+
+            const naziv = document.createElement('h3');
+            naziv.textContent = proizvod.naziv;
+            productNox.appendChild(naziv);
+
+            const cijena = document.createElement('p');
+            cijena.classList.add('product-price');
+            cijena.textContent = proizvod.cijena + 'KM';
+            productNox.appendChild(cijena);
+
+            // Dodaj gumb za brisanje
+            const deleteButton = document.createElement('button');
+            deleteButton.textContent = 'Obriši';
+            deleteButton.addEventListener('click', function() {
+                obrisiProizvod(proizvod.naziv);
+            });
+            productNox.appendChild(deleteButton);
+
+            // Dodaj gumb za uređivanje
+            const editButton = document.createElement('button');
+            editButton.textContent = 'Uredi';
+            editButton.addEventListener('click', function() {
+                // Pozovi funkciju za uređivanje
+                urediProizvod(proizvod.naziv);
+            });
+            productNox.appendChild(editButton);
+
+            // Dodaj productNox na proizvodiContainer
+            proizvodiContainer.appendChild(productNox);
+        });
+    });
+
+    // Funkcija za brisanje proizvoda
+    function obrisiProizvod(naziv) {
+        let proizvodi = JSON.parse(localStorage.getItem('proizvodi')) || [];
+        proizvodi = proizvodi.filter(function(proizvod) {
+            return proizvod.naziv !== naziv;
+        });
+        localStorage.setItem('proizvodi', JSON.stringify(proizvodi));
+        window.location.reload(); // Ponovno učitavanje stranice kako bi se osvježio prikaz bez obrisanih proizvoda
+    }
+
+    // Funkcija za uređivanje proizvoda
+    // Funkcija za uređivanje proizvoda
+function urediProizvod(naziv) {
+    // Pronađi proizvod koji se uređuje
+    let proizvodi = JSON.parse(localStorage.getItem('proizvodi')) || [];
+    const proizvodZaUredjivanje = proizvodi.find(proizvod => proizvod.naziv === naziv);
+
+    // Ako proizvod nije pronađen, prikaži poruku o grešci
+    if (!proizvodZaUredjivanje) {
+        alert('Proizvod nije pronađen!');
+        return;
+    }
+
+    // Simulacija modalnog prozora za uređivanje
+    const novaSlika = prompt('Unesite novu sliku proizvoda:', proizvodZaUredjivanje.slika);
+    const noviNaziv = prompt('Unesite novi naziv proizvoda:', proizvodZaUredjivanje.naziv);
+    const novaCijena = prompt('Unesite novu cijenu proizvoda:', proizvodZaUredjivanje.cijena);
+
+    // Ažuriraj proizvod s novim podacima
+    proizvodZaUredjivanje.slika = novaSlika || proizvodZaUredjivanje.slika;
+    proizvodZaUredjivanje.naziv = noviNaziv || proizvodZaUredjivanje.naziv;
+    proizvodZaUredjivanje.cijena = novaCijena || proizvodZaUredjivanje.cijena;
+
+    // Ažuriraj proizvod u localStorage-u
+    localStorage.setItem('proizvodi', JSON.stringify(proizvodi));
+
+    // Ponovno učitaj stranicu kako bi se osvježio prikaz s ažuriranim podacima
+    window.location.reload();
+}
+
+</script>
+
+    
+
+
+
+
+
+
+</script>
+
+      
+
+
+
+
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.css"/>
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick-theme.min.css"/>
+    
+    
+    
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js"></script>
+    
+  
+   
+
+    <style>
+        /* Stilizacija padajućeg izbornika */
+        #kategorije {
+            padding: 10px;
+            font-size: 16px;
+            border-radius: 5px;
+            margin-bottom: 20px;
+            width: 200px;
+            margin: 0 auto;
+            display: block;
+        }
+
+/* Stilizacija proizvoda za mobilne uređaje */
+@media screen and (max-width: 767px) {
+        .product-nox {
+            width: 35%;
+            margin: 1%;
+            float: left;
+            transform: translateY(-10px);
+         
+        }
+    }
+
+    </style>
+
+
+<script>
+    function filterProizvode() {
+        const kategorija = document.getElementById('kategorije').value;
+        const proizvodi = JSON.parse(localStorage.getItem('proizvodi')) || [];
+        const proizvodiContainer = document.getElementById('proizvodi-container');
+
+        // Očisti proizvodiContainer prije prikazivanja novih proizvoda
+        proizvodiContainer.innerHTML = '';
+
+        // Prikazi proizvode koji odgovaraju odabranoj kategoriji
+        proizvodi.forEach(function(proizvod) {
+            if (kategorija === 'sve' || proizvod.stranica === kategorija + '.html') {
+                const productNox = document.createElement('div');
+                productNox.classList.add('product-nox');
+
+                const img = document.createElement('img');
+                img.src = 'images/' + proizvod.slika;
+                img.alt = proizvod.naziv;
+                productNox.appendChild(img);
+
+                const naziv = document.createElement('h3');
+                naziv.textContent = proizvod.naziv;
+                productNox.appendChild(naziv);
+
+                const cijena = document.createElement('p');
+                cijena.classList.add('product-price');
+                cijena.textContent = proizvod.cijena + 'KM';
+                productNox.appendChild(cijena);
+
+                const deleteButton = document.createElement('button');
+                deleteButton.textContent = 'Obriši';
+                deleteButton.addEventListener('click', function() {
+                    obrisiProizvod(proizvod.naziv);
+                });
+                productNox.appendChild(deleteButton);
+
+                const editButton = document.createElement('button');
+                editButton.textContent = 'Uredi';
+                editButton.addEventListener('click', function() {
+                    urediProizvod(proizvod.naziv);
+                });
+                productNox.appendChild(editButton);
+
+                proizvodiContainer.appendChild(productNox);
+            }
+        });
+    }
+</script>
+
+    
+
+
+
+
+
+
+
+    <footer class="footer">
+       
+            
+              
+            
+    </footer>
+    
+
+    <label for="kategorije">Odaberi kategoriju:</label>
+    <select id="kategorije" onchange="filterProizvode()">
+        <option value="sve">Sve</option>
+        <option value="voce">Voće</option>
+        <option value="povrce">Povrće</option>
+        <option value="meso">Meso</option>
+        <option value="slatkisi">Slatkiši</option>
+        <!-- Dodaj ostale kategorije po potrebi -->
+    </select>
+    
+    <script>
+        function filterProizvode() {
+            const kategorija = document.getElementById('kategorije').value;
+            const proizvodi = JSON.parse(localStorage.getItem('proizvodi')) || [];
+            const proizvodiContainer = document.getElementById('proizvodi-container');
+    
+            // Očisti proizvodiContainer prije prikazivanja novih proizvoda
+            proizvodiContainer.innerHTML = '';
+    
+            // Prikazi proizvode koji odgovaraju odabranoj kategoriji
+            proizvodi.forEach(function(proizvod) {
+                if (kategorija === 'sve' || proizvod.stranica === kategorija + '.html') {
+                    const productNox = document.createElement('div');
+                    productNox.classList.add('product-nox');
+    
+                    const img = document.createElement('img');
+                    img.src = 'images/' + proizvod.slika;
+                    img.alt = proizvod.naziv;
+                    productNox.appendChild(img);
+    
+                    const naziv = document.createElement('h3');
+                    naziv.textContent = proizvod.naziv;
+                    productNox.appendChild(naziv);
+    
+                    const cijena = document.createElement('p');
+                    cijena.classList.add('product-price');
+                    cijena.textContent = proizvod.cijena + 'KM';
+                    productNox.appendChild(cijena);
+    
+                    const deleteButton = document.createElement('button');
+                    deleteButton.textContent = 'Obriši';
+                    deleteButton.addEventListener('click', function() {
+                        obrisiProizvod(proizvod.naziv);
+                    });
+                    productNox.appendChild(deleteButton);
+    
+                    const editButton = document.createElement('button');
+                    editButton.textContent = 'Uredi';
+                    editButton.addEventListener('click', function() {
+                        urediProizvod(proizvod.naziv);
+                    });
+                    productNox.appendChild(editButton);
+    
+                    proizvodiContainer.appendChild(productNox);
+                }
+            });
+        }
+    </script>
+    
+
+</body>
+</html>

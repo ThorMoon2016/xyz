@@ -1,0 +1,466 @@
+<!DOCTYPE html>
+<html lang="hr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prodaja Cvijeća</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <script src="https://www.paypal.com/sdk/js?client-id=Afzc1IlgRQANkX3NGrGcsvTxA5EtNwUQZeLbuicoNCM-hZxx13uq2LyJESOmeue6FLZJELnCp4xTOoXn"></script>
+    
+
+    
+
+    <script src="index.js"></script>
+
+
+
+</head>
+
+<style>
+    body {
+        margin: 0;
+        padding: 0;
+        font-family: Arial, sans-serif;
+    }
+
+    .header {
+       
+        position: relative;
+        z-index: 1;
+       
+        background-size: cover;
+    }
+
+    .text-animation {
+        min-height: 300px; /* Visina text-animation sekcije */
+        position: relative;
+      
+    }
+
+    .full-background {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 80%;
+        z-index: 0;
+        background: url('images/slika.png') no-repeat;
+        background-size: cover;
+        
+       
+    }
+
+
+/* Media upit za mobilne uređaje */
+@media only screen and (max-width: 768px) {
+   
+
+    .full-background {
+        background: url('images/mobBG1.png') no-repeat;
+        background-size: cover;
+        height: 115%;
+       
+    }
+}
+</style>
+
+
+<body>
+      <div class="full-background"></div>
+      <header class="header">
+        <div class="logo">
+            <a href="index.html"><img src="images/logo.png" alt="Logo Cvijećara"></a>
+        </div>
+        <div class="search-box">
+            <div class="search-icon">
+                <i class="fas fa-search"></i>
+            </div>
+            <input type="text" placeholder="Pretraži">
+        </div>
+        <div class="menu-toggle">
+            <div class="menu-line"></div>
+            <div class="menu-line"></div>
+            <div class="menu-line"></div>
+        </div>
+    
+        <nav class="menu">
+            <ul>
+                <li><a href="index.html">HOME</a></li>
+                <li><a href="buketi.html">AKCIJA</a></li>
+                <li><a href="voce.html">VOĆE</a></li>
+                <li><a href="slatkisi.html">SLATKIŠI</a></li>
+                <li><a href="galerija.html">GALERIJA</a></li>
+                <li><a href="contact.html">KONTAKT</a></li>
+                <li><a href="about.html">O NAMA</a></li>
+                <li><a href="korpa.html">KORPA <i class="fas fa-shopping-cart"></i></a></li>
+    
+                <!-- Dodajte ostale opcije menija ovdje -->
+            </ul>
+        </nav>
+    </header>
+    
+    <script>
+        // Funkcija za pretraživanje voća i preusmjeravanje na odgovarajući proizvod
+        function searchFruit() {
+            // Dobivanje unosa korisnika iz polja za pretraživanje
+            var searchTerm = document.getElementById('searchInput').value.toLowerCase();
+    
+            // Provjera da li se pojam nalazi u HTML elementima sa klasom 'product-nox'
+            var products = document.getElementsByClassName('product-nox');
+            for (var i = 0; i < products.length; i++) {
+                var productName = products[i].getElementsByTagName('h3')[0].innerText.toLowerCase();
+                if (productName.includes(searchTerm)) {
+                    // Ako pronađemo proizvod, preusmjeravamo korisnika na odgovarajući dio stranice
+                    window.location.href = '#' + products[i].id;
+                    return;
+                }
+            }
+    
+            // Ako proizvod nije pronađen, obavijestite korisnika
+            alert('Proizvod nije pronađen.');
+        }
+    
+        // Dodajemo slušača događaja za tipku Enter u polju za pretraživanje
+        document.getElementById('searchInput').addEventListener('keypress', function (e) {
+            if (e.key === 'Enter') {
+                searchFruit();
+            }
+        });
+    </script>
+    
+
+    
+
+
+<div class="text-animation" style="text-align: center; ">
+      
+    <div style="text-align: center;">
+        <hr style="border: 1px solid #f0c769; width: 10%; background-image: linear-gradient(90deg, #f0c769 2%, #ffe28b 42%, #d0a651 71%, #ffecb2); -webkit-background-clip: text; background-clip: text; color: transparent; margin-top: 1px; margin-right: 1265px;">
+    
+        <p style="font-weight: bold; margin-top: 1px; margin-right: 850px; font-size: 20px;">GODISNJICA</p>
+    
+        <hr style="border: 1px solid #f0c769; width: 10%; background-image: linear-gradient(90deg, #f0c769 2%, #ffe28b 42%, #d0a651 71%, #ffecb2); -webkit-background-clip: text; background-clip: text; color: transparent; margin-top: -10px; margin-right: 1265px;">
+   
+        <p style="font-weight: bold; margin-top: 1px; margin-right: 850px; font-size: 80px;">30 GODINA <br> TC ROBOT</p>
+
+        
+
+
+        <p style="font-weight: bold; margin-top: -80px; margin-right: 850px; font-size: 20px; color: aliceblue;">Od male trgovacke radnje, do mjesta gdje smo danas  ne bismo mogli to postići bez vas. <br> Tako, dok ove godine slavimo 30 godina, razmišljamo o tome i o svim posebnim trenutcima koje smo podijelili.</p>
+
+        <p style="font-weight: bold; margin-top: 40px; margin-right: 850px; font-size: 20px; color: aliceblue;">Pogledaj kako se mozes pridruziti nasoj proslavi</p>
+
+   
+        <div class="celebration-box">
+            <p>Proslavite sa nama</p>
+          </div>
+
+
+    </div>
+    
+    
+    
+</div>
+</div>
+    
+
+
+
+<style>
+    @media only screen and (max-width: 768px) {
+        /* Stilovi za mobilne uređaje */
+        .text-animation div {
+            margin-right: -850px; /* Prilagodite margine prema potrebi */
+        }
+
+        .text-animation p {
+            margin-right: -30px; /* Prilagodite margine prema potrebi */
+            margin-top: 10px !important;
+            font-size: 22px !important; /* Dodajte !important kako biste osigurali primjenu veličine fonta */
+        }
+
+        .text-animation hr {
+            margin-right: 960px !important; /* Prilagodite margine prema potrebi */
+        }
+
+        /* Prilagodba za "ANNIVERSARY" - Smanji veličinu fonta */
+        .text-animation p:nth-child(2) {
+            font-size: 16px !important; /* Smanjite veličinu fonta prema potrebi */
+        }
+
+        /* Prilagodba za "200 YEARS" - Povećaj veličinu fonta */
+        .text-animation p:nth-child(4) {
+            font-size: 40px !important; /* Povećajte veličinu fonta prema potrebi */
+        }
+
+        /* Prilagodba za "From a little grocery shop..." - Smanji veličinu fonta */
+        .text-animation p:nth-last-child(3) {
+            font-size: 18px !important; /* Smanjite veličinu fonta prema potrebi */
+        }
+
+        /* Prilagodba za "Previous last paragraph" - Povećaj veličinu fonta */
+        .text-animation p:nth-last-child(2) {
+            font-size: 14px !important; /* Povećajte veličinu fonta prema potrebi */
+        }
+
+        /* Prilagodba za "See how you can join in the celebrations." - Smanji veličinu fonta */
+        .text-animation p:last-child {
+            font-size: 16px !important; /* Smanjite veličinu fonta prema potrebi */
+        }
+    }
+</style>
+
+
+
+      
+      
+      <!-- jQuery -->
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<!-- Slick Slider JS -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js"></script>
+<!-- Custom Script -->
+<script>
+  $(document).ready(function(){
+    $('.float').slick({
+      slidesToShow: 3, // Show three slides at once
+      slidesToScroll: 1,
+      autoplay: true,
+      autoplaySpeed: 2000, // Change this value to adjust slide speed
+      infinite: true,
+      pauseOnHover: true,
+      responsive: [
+        {
+          breakpoint: 768,
+          settings: {
+            slidesToShow: 1 // Show only one slide on smaller screens
+          }
+        }
+      ]
+    });
+  });
+</script>
+
+
+    
+    <hr style="border: 1px solid rgb(212, 212, 212); width: 80%;">
+
+
+     <!-- Tekst "Kategorija proizvoda" -->
+    <div class="category">
+        <h2>Kategorija proizvoda</h2>
+    </div>
+
+    <!-- Slike proizvoda -->
+    <div class="product-grid">
+        <!-- Red 1 -->
+        <div class="product-row">
+            <div class="product">
+                <a href="voda.html">
+                    <img src="images/fruitesAndVegetables.jpg" alt="Proizvod 1">
+                </a>
+                <p>Naziv proizvoda 1</p>
+            </div>
+            
+            <div class="product">
+                <img src="images/dairyAndEggs.jpg" alt="Proizvod 2">
+                <p>Naziv proizvoda 2</p>
+            </div>
+            <div class="product">
+                <img src="images/meatAndMeatProducts.jpg" alt="Proizvod 3">
+                <p>Naziv proizvoda 3</p>
+            </div>
+            <div class="product">
+                <img src="images/pastriesAndCakes.jpg" alt="Proizvod 4">
+                <p>Naziv proizvoda 4</p>
+            </div>
+        </div>
+    </div>
+        
+        <!-- Red 2 (slično kao Red 1) -->
+         <!-- Slike proizvoda -->
+    <div class="product-grid">
+        <!-- Red 1 -->
+        <div class="product-row">
+            <div class="product">
+                <img src="images/fruitesAndVegetables.jpg" alt="Proizvod 1">
+                <p>Naziv proizvoda 1</p>
+            </div>
+            <div class="product">
+                <img src="images/dairyAndEggs.jpg" alt="Proizvod 2">
+                <p>Naziv proizvoda 2</p>
+            </div>
+            <div class="product">
+                <img src="images/meatAndMeatProducts.jpg" alt="Proizvod 3">
+                <p>Naziv proizvoda 3</p>
+            </div>
+            <div class="product">
+                <img src="images/pastriesAndCakes.jpg" alt="Proizvod 4">
+                <p>Naziv proizvoda 4</p>
+            </div>
+        </div>
+    </div>
+        <!-- Red 3 (slično kao Red 1) -->
+
+        <!-- Slike proizvoda -->
+    <div class="product-grid">
+        <!-- Red 1 -->
+        <div class="product-row">
+            <div class="product">
+                <img src="images/fruitesAndVegetables.jpg" alt="Proizvod 1">
+                <p>Naziv proizvoda 1</p>
+            </div>
+            <div class="product">
+                <img src="images/dairyAndEggs.jpg" alt="Proizvod 2">
+                <p>Naziv proizvoda 2</p>
+            </div>
+            <div class="product">
+                <img src="images/meatAndMeatProducts.jpg" alt="Proizvod 3">
+                <p>Naziv proizvoda 3</p>
+            </div>
+            <div class="product">
+                <img src="images/pastriesAndCakes.jpg" alt="Proizvod 4">
+                <p>Naziv proizvoda 4</p>
+            </div>
+        </div>
+    </div>
+    
+
+
+
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.css"/>
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick-theme.min.css"/>
+    
+    
+    
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js"></script>
+    
+    <script>
+        $(document).ready(function(){
+            $('.slider').slick({
+                infinite: true,
+                slidesToShow: 3,
+                slidesToScroll: 1,
+                prevArrow: '<button type="button" class="slick-prev">Previous</button>',
+                nextArrow: '<button type="button" class="slick-next">Next</button>',
+            });
+        });
+    </script>
+    
+    
+
+    <hr style="border: 1px solid rgb(212, 212, 212); width: 80%;">
+
+    <section class="flowers">
+        <div class="client-title-box">
+        <h2>ROBA NA AKCIJI
+    </div>
+        <div class="flower-container">
+            <div class="flower-box">
+                <a href="cv1.html">
+                    <div class="flower">
+                        <img src="images/narandza.png" alt="Cvijet 1">
+                        <div class="flower-details">
+                            <p class="price">1,80KM <span class="discount-price">2,10KM</span></p>
+                            <div class="name-box">
+                                <p class="name">NARANDZA</p>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            
+            <div class="flower-box">
+                <a href="cv2.html">
+                <div class="flower">
+                    <img src="images/jabuka.png" alt="Cvijet 2">
+                    <div class="flower-details">
+                        <p class="price">1,15KM <span class="discount-price">1,50KM</span></p>
+                        <div class="name-box">
+                            <p class="name">ZELENA JABUKA</p>
+                        </div>
+                    </div>
+                </div>
+            </a>
+            </div>
+            <div class="flower-box">
+                <a href="cv3.html">
+                <div class="flower">
+                    <img src="images/grah.png" alt="Cvijet 2">
+                    <div class="flower-details">
+                        <p class="price">5KM <span class="discount-price">5.55KM</span></p>
+                        <div class="name-box">
+                            <p class="name">GRAH</p>
+                        </div>
+                    </div>
+                </div>
+            </a>
+            </div>
+            <div class="flower-box">
+                <a href="cv4.html">
+                <div class="flower">
+                    <img src="images/banana.png" alt="Cvijet 2">
+                    <div class="flower-details">
+                        <p class="price">3,55KM <span class="discount-price">3,85KM</span></p>
+                        <div class="name-box">
+                            <p class="name">BANANA</p>
+                        </div>
+                    </div>
+                </div>
+            </a>
+            </div>
+        </div>
+        <div class="flower-container">
+            <!-- Ponavljajte isti obrazac za ostale proizvode -->
+        </div>
+
+         <!-- Dodajte link "Pogledaj sve" -->
+    <div class="view-all-link">
+        <a href="buketi.html">Pogledaj sve</a>
+    </div>
+    </section>
+    
+    
+    <hr style="border: 1px solid rgb(212, 212, 212); width: 90%;">
+
+
+    <div class="client-title-fox">
+        <div class="client-title-box-fox">
+        <h2>NAŠI KLIJENTI</h2>
+    </div>
+</div>
+    <div class="floating-images">
+        
+        <img src="images/amazon-removebg-preview.png" alt="Amazon Logo">
+        <img src="images/bingo-removebg-preview.png" alt="Google Logo">
+        <img src="images/konzum-removebg-preview.png" alt="Apple Logo">
+        <img src="images/logo-coca-cola.png" alt="Microsoft Logo">
+        <img src="images/logo-godrej.png" alt="Facebook Logo">
+        <img src="images/logo-oppo.png" alt="Google Logo">
+        <img src="images/logo-paypal.png" alt="Apple Logo">
+        <img src="images/logo-philips.png" alt="Microsoft Logo">
+        
+        
+    </div>
+    <hr style="border: 1px solid rgb(212, 212, 212); width: 90%;">
+   
+
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="social-icons">
+                <a href="https://www.facebook.com/nerina.ba/"><i class="fab fa-facebook"></i></a>
+                <a href="#"><i class="fab fa-viber"></i></a>
+                <a href="https://www.instagram.com/cvjecaranerina/?hl=en"><i class="fab fa-instagram"></i></a>
+              </div>
+              
+            <div class="copyright">
+                &copy; 2023. Sva prava zadržana.
+            </div>
+        </div>
+    </footer>
+    
+
+
+</body>
+</html>

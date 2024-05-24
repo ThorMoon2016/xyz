@@ -1,0 +1,692 @@
+<!DOCTYPE html>
+<html lang="hr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prodaja Cvijeća</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <script src="https://www.paypal.com/sdk/js?client-id=Afzc1IlgRQANkX3NGrGcsvTxA5EtNwUQZeLbuicoNCM-hZxx13uq2LyJESOmeue6FLZJELnCp4xTOoXn"></script>
+
+    <script src="index.js"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=VAŠ_API_KLJUČ&callback=initMap" async defer></script>
+    <script>
+        function initMap() {
+            var myLatLng = { lat: 43.849388, lng: 18.397976 }; // Koordinate za Zmaja od Bosne 41, Sarajevo
+            var map = new google.maps.Map(document.getElementById('map'), {
+                zoom: 15,
+                center: myLatLng
+            });
+            var marker = new google.maps.Marker({
+                position: myLatLng,
+                map: map,
+                title: 'Cvjećara NERINA 2, Zmaja od Bosne 41, Sarajevo'
+            });
+        }
+    </script>
+    
+
+
+    
+
+</head>
+<style>
+    
+
+    
+
+    .text-animation {
+        min-height: 300px; /* Visina text-animation sekcije */
+        position: relative;
+      
+    }
+
+   
+
+
+/* Media upit za mobilne uređaje */
+@media only screen and (max-width: 768px) {
+    .header {
+        background: url('images/mobBG1.png') no-repeat;
+        background-size: cover;
+    }
+
+    .full-background {
+        background: url('images/mobBG1.png') no-repeat;
+        background-size: cover;
+        height: 115%;
+    }
+}
+</style>
+
+<body>
+    <div class="full-background"></div>
+    <header class="header">
+        <div class="logo">
+            <a href="index.html"><img src="images/logo.png" alt="Logo Cvijećara"></a>
+        </div>
+            
+        </div>
+      
+        
+        <div class="menu-toggle">
+            <div class="menu-line"></div>
+            <div class="menu-line"></div>
+            <div class="menu-line"></div>
+        </div>
+    
+    <nav class="menu">
+        <ul>
+            <li><a href="index.html">HOME</a></li>
+            <li><a href="buketi.html" style="color: red;">AKCIJA</a></li>
+            <li><a href="galerija.html">GALERIJA</a></li>
+            <li><a href="contact.html">KONTAKT</a></li>
+            <li><a href="about.html">O NAMA</a></li>
+            <li><a href="korpa.html">KORPA <i class="fas fa-shopping-cart"></i></a></li>
+
+            <!-- Dodajte ostale opcije menija ovdje -->
+        </ul>
+    </nav>
+</header>
+    
+
+    <div style="text-align: center;">
+        <p><strong>Dobrodošli na našu stranicu!</strong> Kompanija Robot je osnovana u Bosni i Hercegovini 1995. godine i od tada do danas izrasla je u respektabilnu grupaciju.</p>
+    
+        <p>Osnovna djelatnost kompanije je veleprodaja i maloprodaja tehničkim robama, robom široke potrošnje i prehrambenim proizvodima, maloprodajni lanci – shopping centri, kao i obavljanje uslužnih djelatnosti. </p>
+    
+        <p>Naša je misija pružiti svakom kupcu najbolji omjer cijene i kvalitete kroz vrhunsku uslugu te pažljivo izabran asortiman kvalitetnih i povoljnih roba s naglaskom na domaće.</p>
+    
+        
+    </div>
+    
+
+    
+    <img src="images/r1.png" alt="Cvijet glavni" style="margin-top: 30px; margin-bottom: 30px; max-width: 100%; height: auto; margin-left: auto; margin-right: auto;">
+
+
+    <hr style="border: 1px solid rgb(212, 212, 212); width: 80%;">
+
+
+
+
+
+
+    <div id="cartItemsContainer" class="cart-items-container"></div>
+
+
+    <div id="summary">
+        <h2>Summary</h2>
+        <p>Subtotal: <span id="subtotal">0.00 KM</span></p>
+        <p>Total with Delivery: <span id="totalWithDelivery">0.00 KM</span></p>
+        <button class="poruci-dugme">Poruči</button>
+    </div>
+
+
+
+
+<!-- Dodajte ovo na dno vašeg HTML koda, nakon što su definisane vaše info-box komponente i dugme "NARUČI" -->
+<script>
+    const inputFields = document.querySelectorAll('.info-container input, .info-container textarea');
+    const naruciButton = document.getElementById('naruciButton');
+
+    // Kreirajte funkciju koja proverava da li su sva polja popunjena
+    function proveriPopunjenostPolja() {
+        let svaPoljaPopunjena = true;
+        inputFields.forEach(function(field) {
+            if (field.value === '') {
+                svaPoljaPopunjena = false;
+            }
+        });
+
+        // Omogućite dugme "NARUČI" ako su sva polja popunjena, inače onemogućite
+        naruciButton.disabled = !svaPoljaPopunjena;
+    }
+
+    // Dodajte event listener na svako input polje i textarea
+    inputFields.forEach(function(field) {
+        field.addEventListener('input', proveriPopunjenostPolja);
+    });
+
+    // Event listener za klik na dugme "NARUČI"
+    naruciButton.addEventListener('click', function(event) {
+        // Ako sva polja nisu popunjena, sprečite slanje forme
+        if (!proveriPopunjenostPolja()) {
+            event.preventDefault();
+        }
+    });
+</script>
+
+
+
+
+
+
+
+
+<div class="form-subtitle" id="openInfoSectionLabel"><i class="fas fa-chevron-down form-arrow"></i>  Unesi podatke <span></span></div>
+
+<!-- HTML forma -->
+<div class="info-container" id="infoContainer">
+    <div class="info-box">
+        <input type="text" id="imePrezimePosiljaoca" name="imePrezimePosiljaoca" placeholder="Unesite ime i prezime pošiljaoca">
+    </div>
+    <div class="info-box">
+        <input type="email" id="emailPosiljaoca" name="emailPosiljaoca" placeholder="Unesite email pošiljaoca">
+    </div>
+    <div class="info-box">
+        <input type="tel" id="telefonPosiljaoca" name="telefonPosiljaoca" placeholder="Unesite telefon pošiljaoca">
+    </div>
+    <div class="info-box">
+        <input type="text" id="imePrezimePrimaoca" name="imePrezimePrimaoca" placeholder="Unesite ime i prezime primaoca">
+    </div>
+    <div class="info-box">
+        <input type="tel" id="telefonPrimaoca" name="telefonPrimaoca" placeholder="Unesite telefon primaoca">
+    </div>
+    <div class="info-box">
+        <input type="text" id="gradPrimaoca" name="gradPrimaoca" placeholder="Unesite grad primaoca">
+    </div>
+    <div class="info-box">
+        <input type="text" id="adresaPrimaoca" name="adresaPrimaoca" placeholder="Unesite adresu primaoca">
+    </div>
+    <div class="info-box">
+        <input type="text" id="datumIsporuke" name="datumIsporuke" placeholder="Unesite datum isporuke">
+    </div>
+    <div class="info-box">
+        <textarea id="poruka" name="poruka" placeholder="Unesite poruku"></textarea>
+    </div>
+    <input type="hidden" name="Proizvod" value="buket">
+    <button class="naruci-dugme" id="naruciButton" disabled><span class="tekst-dugmeta">NARUČI</span></button>
+</div>
+
+<!-- jQuery i JavaScript kod -->
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+    $(document).ready(function() {
+        // Onemogući dugme "NARUČI" početno
+        $("#naruciButton").prop("disabled", true);
+
+        // Proveri da li su sva polja popunjena prilikom unosa
+        $("input, textarea").on("input", function() {
+            var allFieldsFilled = true;
+            $("input, textarea").each(function() {
+                if ($(this).val().trim() === "") {
+                    allFieldsFilled = false;
+                }
+            });
+            // Ako su sva polja popunjena, omogući dugme "NARUČI", inače ga onemogući
+            $("#naruciButton").prop("disabled", !allFieldsFilled);
+        });
+
+        // Klik na dugme "NARUČI"
+        $("#naruciButton").click(function(event) {
+            // Spriječi podnošenje obrasca
+            event.preventDefault();
+
+            // Spremite podatke iz formulara u objekt ako su sva polja popunjena
+            if ($("#imePrezimePosiljaoca").val().trim() !== "" &&
+                $("#emailPosiljaoca").val().trim() !== "" &&
+                $("#telefonPosiljaoca").val().trim() !== "" &&
+                $("#imePrezimePrimaoca").val().trim() !== "" &&
+                $("#telefonPrimaoca").val().trim() !== "" &&
+                $("#gradPrimaoca").val().trim() !== "" &&
+                $("#adresaPrimaoca").val().trim() !== "" &&
+                $("#datumIsporuke").val().trim() !== "" &&
+                $("#poruka").val().trim() !== "") {
+
+                var formData = {
+                    imePrezimePosiljaoca: $("#imePrezimePosiljaoca").val(),
+                    emailPosiljaoca: $("#emailPosiljaoca").val(),
+                    telefonPosiljaoca: $("#telefonPosiljaoca").val(),
+                    imePrezimePrimaoca: $("#imePrezimePrimaoca").val(),
+                    telefonPrimaoca: $("#telefonPrimaoca").val(),
+                    gradPrimaoca: $("#gradPrimaoca").val(),
+                    adresaPrimaoca: $("#adresaPrimaoca").val(),
+                    datumIsporuke: $("#datumIsporuke").val(),
+                    poruka: $("#poruka").val(),
+                    Proizvod: " "
+                };
+                
+
+                document.addEventListener('DOMContentLoaded', function() {
+    function updateProductInFormData() {
+        let proizvodiUKorpi = JSON.parse(localStorage.getItem('proizvodiUKorpi')) || [];
+        let nazivProizvoda = proizvodiUKorpi.map(productInfo => productInfo.naziv).join(', ');
+
+        // Ažuriranje vrednosti polja Proizvod u objektu formData
+        formData.Proizvod = nazivProizvoda;
+
+        // Ažuriranje teksta polja Proizvod u formi
+        document.getElementById('proizvod').innerText = nazivProizvoda;
+    }
+
+    // Poziv funkcije za ažuriranje polja Proizvod prilikom učitavanja stranice
+    updateProductInFormData();
+
+
+
+
+// Klik na dugme "NARUČI"
+$("#naruciButton").click(function(event) {
+    event.preventDefault();
+
+    // Spremite podatke iz formulara u objekt ako su sva polja popunjena
+    if ($("#imePrezimePosiljaoca").val().trim() !== "" &&
+        // ... (provera ostalih polja)
+        $("#poruka").val().trim() !== "") {
+
+        var formData = {
+            imePrezimePosiljaoca: $("#imePrezimePosiljaoca").val(),
+            emailPosiljaoca: $("#emailPosiljaoca").val(),
+            // ... (ostatak podataka forme)
+            poruka: $("#poruka").val(),
+            Proizvod: "" // Ostaviti prazno polje koje će se popuniti sa nazivima proizvoda
+        };
+
+        // Učitavanje naziva proizvoda iz lokalnog skladišta
+      // Učitavanje naziva proizvoda iz lokalnog skladišta
+var proizvodiUKorpi = JSON.parse(localStorage.getItem('proizvodiUKorpi')) || [];
+var naziviIKolicineProizvoda = proizvodiUKorpi.map(productInfo => `${productInfo.naziv} (${productInfo.količina} KG)`).join(', ');
+
+// Dodavanje naziva proizvoda u podatke forme
+formData.Proizvod = naziviIKolicineProizvoda;
+
+
+        // Slanje podataka forme putem AJAX-a na FormsPree
+        $.ajax({
+            url: "https://formspree.io/f/mjvqkzbv",
+            method: "POST",
+            data: formData,
+            dataType: "json",
+            success: function(response) {
+                // Ovdje možete dodati kod za prikazivanje PayPal dugmeta ili drugih funkcionalnosti nakon što je forma uspješno poslana
+                // Na primer, prikazivanje PayPal dugmeta ili redirekcija korisnika na PayPal stranicu.
+            }
+        });
+    }
+});
+
+
+
+
+});
+
+
+                // Napravite AJAX poziv na FormsPree
+                $.ajax({
+                 
+                    dataType: "json",
+                    success: function(response) {
+                        // Ovdje možete dodati kod za prikazivanje PayPal dugmeta ili drugih funkcionalnosti nakon što je forma uspješno poslana
+                        // Na primer, prikazivanje PayPal dugmeta ili redirekcija korisnika na PayPal stranicu.
+                    }
+                });
+            }
+        });
+    });
+
+
+
+    // Klik na dugme "NARUČI"
+$("#naruciButton").click(function(event) {
+    event.preventDefault();
+
+    // Spremite podatke iz formulara u objekt ako su sva polja popunjena
+    if ($("#imePrezimePosiljaoca").val().trim() !== "" &&
+        // ... (provera ostalih polja)
+        $("#poruka").val().trim() !== "") {
+
+        var formData = {
+            imePrezimePosiljaoca: $("#imePrezimePosiljaoca").val(),
+            emailPosiljaoca: $("#emailPosiljaoca").val(),
+            telefonPosiljaoca: $("#telefonPosiljaoca").val(),
+                    imePrezimePrimaoca: $("#imePrezimePrimaoca").val(),
+                    telefonPrimaoca: $("#telefonPrimaoca").val(),
+                    gradPrimaoca: $("#gradPrimaoca").val(),
+                    adresaPrimaoca: $("#adresaPrimaoca").val(),
+                    datumIsporuke: $("#datumIsporuke").val(),
+            
+            // ... (ostatak podataka forme)
+            poruka: $("#poruka").val(),
+            Proizvod: "" // Ostaviti prazno polje koje će se popuniti sa nazivima proizvoda
+        };
+
+        // Učitavanje naziva proizvoda iz lokalnog skladišta
+var proizvodiUKorpi = JSON.parse(localStorage.getItem('proizvodiUKorpi')) || [];
+var naziviIKolicineProizvoda = proizvodiUKorpi.map(productInfo => `${productInfo.naziv} (${productInfo.količina} KG)`).join(', ');
+
+// Dodavanje naziva proizvoda u podatke forme
+formData.Proizvod = naziviIKolicineProizvoda;
+
+// Slanje podataka forme putem AJAX-a na FormsPree
+$.ajax({
+    url: "https://formspree.io/f/mjvqkzbv",
+    method: "POST",
+    data: formData, // Ovdje uključujemo i informaciju o proizvodu
+    dataType: "json",
+    success: function(response) {
+        // Ovdje možete dodati kod za prikazivanje PayPal dugmeta ili drugih funkcionalnosti nakon što je forma uspješno poslana
+        // Na primer, prikazivanje PayPal dugmeta ili redirekcija korisnika na PayPal stranicu.
+    }
+});
+
+    }
+});
+
+</script>
+
+
+
+
+
+    
+    <div id="paypal-button-container" style="display: none;"></div>
+
+
+
+
+    <script>
+         // Event listener za klik na dugme "NARUČI"
+    $("#naruciButton").click(function(event) {
+        event.preventDefault();
+
+        // Spremite podatke iz formulara u objekt ako su sva polja popunjena
+        if ($("#imePrezimePosiljaoca").val().trim() !== "" &&
+            // ... (provera ostalih polja)
+            $("#poruka").val().trim() !== "") {
+
+            // Izračunajte totalnu cijenu za PayPal i Debit Card prema "Total with Delivery"
+            var totalWithDelivery = parseFloat($("#totalWithDelivery").text());
+            
+            // Nastavite s PayPal i Debit Card procesom s izračunatom cijenom
+            // Ažurirajte vrijednost na PayPal dugmetu s novom izračunatom vrijednosti 'totalWithDelivery'
+            paypal.Buttons({
+                createOrder: function(data, actions) {
+                    return actions.order.create({
+                        purchase_units: [{
+                            amount: {
+                                value: totalWithDelivery.toFixed(2) // Postavite ukupnu vrijednost
+                            }
+                        }]
+                    });
+                },
+                onApprove: function(data, actions) {
+                    return actions.order.capture().then(function(details) {
+                        // Uspešno završena transakcija, obradite je ovde (npr. sačuvajte detalje u bazi podataka)
+                        alert('Transakcija uspešna: ' + details.payer.name.given_name);
+                    });
+                },
+                onError: function(err) {
+                    // Greška prilikom plaćanja, obradite je ovde
+                    console.error('Greška prilikom plaćanja:', err);
+                }
+            }).render('#paypal-button-container');
+        }
+    });
+
+    </script>
+
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const cartItemsContainer = document.getElementById('cartItemsContainer');
+    const subtotalElement = document.getElementById('subtotal');
+    const totalWithDeliveryElement = document.getElementById('totalWithDelivery');
+
+    function renderCartItems() {
+        cartItemsContainer.innerHTML = '';
+        let proizvodiUKorpi = JSON.parse(localStorage.getItem('proizvodiUKorpi')) || [];
+
+        proizvodiUKorpi.forEach((productInfo, index) => {
+            const productDiv = document.createElement('div');
+            productDiv.classList.add('cart-item');
+            productDiv.style.marginBottom = '-105px';
+
+            const removeButton = document.createElement('button');
+            removeButton.innerHTML = 'X';
+            removeButton.classList.add('removeButton');
+
+            removeButton.addEventListener('click', function() {
+                const index = proizvodiUKorpi.findIndex(product => product.id === productInfo.id);
+                if (index !== -1) {
+                    proizvodiUKorpi.splice(index, 1);
+                    localStorage.setItem('proizvodiUKorpi', JSON.stringify(proizvodiUKorpi));
+                    renderCartItems();
+                    calculateTotal();
+                }
+            });
+
+            productDiv.innerHTML = `
+                <div class="cart-item-details">
+                    <img src="${productInfo.imageUrl}" alt="${productInfo.naziv}" class="cart-item-image">
+                    <div class="details-right">
+                        <div class="details-text">
+                            <p class="cart-item-name">${productInfo.naziv} (${productInfo.količina} KG)</p>
+                            <p class="cart-item-price" style="color: red;">${productInfo.ukupnaCijena} KM</p>
+                        <div class="remove-button-container">
+                        </div>
+                    </div>
+                </div>
+            `;
+
+            productDiv.querySelector('.remove-button-container').appendChild(removeButton);
+            cartItemsContainer.appendChild(productDiv);
+
+            if (index !== proizvodiUKorpi.length - 1) {
+                const hrElement = document.createElement('hr');
+                hrElement.style.border = '1px solid rgb(212, 212, 212)';
+                hrElement.style.width = '90%';
+                cartItemsContainer.appendChild(hrElement);
+            }
+        });
+    }
+
+    function calculateTotal() {
+        let proizvodiUKorpi = JSON.parse(localStorage.getItem('proizvodiUKorpi')) || [];
+        let subtotal = 0;
+
+        proizvodiUKorpi.forEach(productInfo => {
+            subtotal += parseFloat(productInfo.ukupnaCijena);
+        });
+
+        subtotalElement.textContent = `${subtotal.toFixed(2)} KM`;
+        totalWithDeliveryElement.textContent = `${subtotal.toFixed(2)} KM`;
+    }
+
+    renderCartItems();
+    calculateTotal();
+});
+
+
+
+
+
+
+// Funkcija za prikazivanje subtotala i ukupne cijene proizvoda u korpi
+function showCartSummary() {
+        const cartItemsContainer = document.getElementById('cartItemsContainer');
+        const subtotalElement = document.getElementById('subtotal');
+        const totalWithDeliveryElement = document.getElementById('totalWithDelivery');
+
+        function calculateTotal() {
+            let cartItems = JSON.parse(localStorage.getItem('proizvodiUKorpi')) || [];
+            let subtotal = 0;
+
+            cartItems.forEach(productInfo => {
+                subtotal += parseFloat(productInfo.cijena);
+            });
+
+            subtotalElement.textContent = `${subtotal.toFixed(2)} KM`;
+            totalWithDeliveryElement.textContent = `${subtotal.toFixed(2)} KM`;
+        }
+
+        // Pozivamo funkciju za izračunavanje sume kada se učita stranica
+        calculateTotal();
+
+        // Dodajemo event listener za klik na dugme za uklanjanje proizvoda
+        cartItemsContainer.addEventListener('click', function(event) {
+            if (event.target.classList.contains('removeButton')) {
+                const productId = parseInt(event.target.getAttribute('data-id'));
+
+                // Uklanjanje proizvoda iz korpe
+                let cartItems = JSON.parse(localStorage.getItem('proizvodiUKorpi')) || [];
+                cartItems = cartItems.filter(productInfo => productInfo.id !== productId);
+                localStorage.setItem('proizvodiUKorpi', JSON.stringify(cartItems));
+
+                // Ponovno izračunavanje sume i ažuriranje prikaza
+                calculateTotal();
+            }
+        });
+    }
+
+    // Pozivamo funkciju za prikazivanje subtotala i ukupne cijene
+    showCartSummary();
+
+
+</script>
+
+
+    
+
+
+
+
+
+
+<style>
+.cart-item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+    width: 100%;
+}
+
+.cart-item-image {
+    width: 30%; /* Prilagodite veličinu slike prema potrebi */
+    height: auto;
+    margin-left: 450px; /* Razmak između slike i teksta */
+    flex-shrink: 0; /* Spriječava smanjivanje slike */
+}
+
+.details-right {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    flex: 1;
+    margin-left: 950px; /* Dodatni razmak između slike i teksta */
+}
+
+.details-text {
+    position: relative; /* Koristi relativnu poziciju */
+    top: -250px; /* Podešavanje da se tekst pomjeri prema gore */
+    font-weight: bold;
+    /* Ostali stilovi za tekst */
+}
+
+.remove-button-container {
+    display: flex;
+    align-items: center;
+}
+
+.removeButton {
+    background-color: #ff0000; /* Crvena boja */
+    color: white;
+    border: none;
+    border-radius: 60%;
+    width: 30px;
+    height: 30px;
+    font-size: 16px;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative; /* Koristi relativnu poziciju */
+    top: -160px; /* Podešavanje da se tekst pomjeri prema gore */
+    /* Ostali stilovi za tekst */
+    left: 10px;
+}
+
+
+
+
+
+
+/* Stilovi za mobilnu verziju */
+@media only screen and (max-width: 768px) {
+    .cart-item {
+        /* Prilagodite stilove za mobilnu verziju umanjene za 50% */
+        /* Primjer: */
+        width: 50%;
+    }
+
+    .cart-item-image {
+        /* Prilagodite stilove za mobilnu verziju umanjene za 50% */
+        /* Primjer: */
+        width: 60%;
+        margin-left: 60px;
+    }
+
+    .details-right {
+        /* Prilagodite stilove za mobilnu verziju umanjene za 50% */
+        /* Primjer: */
+        margin-left: 100px;
+    }
+
+    .details-text {
+        /* Prilagodite stilove za mobilnu verziju umanjene za 50% */
+        /* Primjer: */
+        top: -200px;
+        margin-left: 180px;
+    }
+
+    .removeButton {
+        /* Prilagodite stilove za mobilnu verziju umanjene za 50% */
+        /* Primjer: */
+        top: -190px;
+        left: 20px;
+    }
+}
+
+
+
+</style>
+
+<hr style="border: 1px solid rgb(212, 212, 212); width: 80%;">
+    
+
+ 
+
+   
+    <div class="store-info">
+        <h2>TC ROBOT</h2>
+        <p>Shopping centar Robot Novo Sarajevo (kod Socijalnog)</p>
+        <p>Zmaja od Bosne 41</p>
+        <p>Sarajevo</p>
+        <p>Tel: <a href="tel:+387033523879">033 523 879</a></p>
+        <p>Mob: <a href="tel:+387061186010">061 186 010</a></p>
+        <p>E-mail: <a href="mailto:info@robot.ba">info@robot.ba</a></p>
+    </div>
+    
+    
+
+    
+
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="social-icons">
+                <a href="https://www.facebook.com/nerina.ba/"><i class="fab fa-facebook"></i></a>
+                <a href="#"><i class="fab fa-viber"></i></a>
+                <a href="https://www.instagram.com/cvjecaranerina/?hl=en"><i class="fab fa-instagram"></i></a>
+              </div>
+              
+            <div class="copyright">
+                &copy; 2023. Sva prava zadržana.
+            </div>
+        </div>
+    </footer>
+    
+
+
+
+</body>
+</html>
