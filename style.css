@@ -1917,3 +1917,7 @@ position: relative; /* Dodajte relativni položaj kako bi oznaka akcije bila rel
 }
 
 
+.quantity-input {
+    touch-action: manipulation;
+}
+
