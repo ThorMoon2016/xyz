@@ -126,20 +126,80 @@
         });
     </script>
 
+<style>
+    form {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+        max-width: 300px;
+        margin: 0 auto;
+    }
+
+    form label, form input, form select, form button, form div {
+        width: 100%;
+        max-width: 300px;
+        margin: 1px 0;
+    }
+
+    form input[type="text"], form input[type="number"], form select, form input[type="file"] {
+        padding: 10px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        box-sizing: border-box;
+    }
+
+    form input[type="checkbox"] {
+        width: auto;
+        margin-right: 10px;
+    }
+
+    form button {
+        padding: 10px;
+        background-color: #007bff;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+
+    form button:hover {
+        background-color: #0056b3;
+    }
+
+    #oldPriceContainer {
+        display: none;
+    }
+
+    .text-animation {
+        text-align: center;
+    }
+    
+</style>
+
+
+
+
 <div class="text-animation" style="text-align: center; ">
     <h1>Dodaj Proizvod</h1>
     <form id="product-form">
         <label for="name">Naziv proizvoda:</label>
-        <input type="text" id="name" name="name" required><br><br>
+          <input type="text" id="name" name="name" placeholder="Naziv proizvoda" required><br><br>
 
         <label for="price">Cijena:</label>
-        <input type="number" id="price" name="price" required><br><br>
+        <input type="number" id="price" name="price" placeholder="Cijena" required><br><br>
 
         <label for="category">Kategorija:</label>
         <select id="category" name="category">
-            <option value="voce">Voće</option>
+            <option value="voce_povrce">Voće i povrće</option>
             <option value="meso">Meso</option>
             <option value="voda">Voda</option>
+            <option value="mlijecni_proizvodi">Mliječni proizvodi</option>
+            <option value="baby_program">Baby program</option>
+            <option value="slatki_program">Slatki program</option>
+            <option value="kucna_hemija">Kućna hemija</option>
+            <option value="njega_lica">Njega lica i tijela</option>
+            <option value="bijela_tehnika">Bijela tehnika</option>
         </select><br><br>
 
         <label for="discount">Sniženje:</label>
@@ -147,7 +207,7 @@
 
 <div id="oldPriceContainer">
     <label for="oldPrice">Stara cijena:</label>
-    <input type="number" id="oldPrice" name="oldPrice" readonly><br><br>
+     <input type="number" id="oldPrice" name="oldPrice" placeholder="Stara cijena" readonly><br><br>
 </div>
 
 
@@ -234,8 +294,24 @@ form.addEventListener('submit', async (e) => {
 
             if (category === 'voda') {
                 window.location.href = 'voda.html';
-            } else if (category === 'voce') {
-                window.location.href = 'voce.html';
+            } else if (category === 'voce_povrce') {
+                window.location.href = 'voce_povrce.html';        
+    } else if (category === 'meso') {
+        window.location.href = 'meso.html';
+    } else if (category === 'jaja') {
+        window.location.href = 'jaja.html';
+    } else if (category === 'mlijecni_proizvodi') {
+        window.location.href = 'mlijecni_proizvodi.html';
+    } else if (category === 'kucna_hemija') {
+        window.location.href = 'kucna_hemija.html';
+    } else if (category === 'slatki_program') {
+        window.location.href = 'slatki_program.html';
+    } else if (category === 'baby_program') {
+        window.location.href = 'baby_program.html';
+    } else if (category === 'njega_lica') {
+        window.location.href = 'njega_lica.html';
+    } else if (category === 'bijela_tehnika') {
+        window.location.href = 'bijela_tehnika.html';
             } else {
                 alert('Proizvod uspješno dodan!');
             }
@@ -245,6 +321,8 @@ form.addEventListener('submit', async (e) => {
     } else {
         alert("Molimo unesite sve potrebne podatke.");
     }
+
+    
 });
 
     </script>
