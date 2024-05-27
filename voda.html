@@ -285,11 +285,15 @@
                 }
     
                 const quantityInput = document.createElement('input');
-                quantityInput.type = 'number';
-                quantityInput.value = 1;
-                quantityInput.min = 1;
-                quantityInput.className = 'quantity-input';
-                li.appendChild(quantityInput);
+quantityInput.type = 'text'; // Koristimo 'text' umjesto 'number' kako bismo omogućili unos decimalnih brojeva sa , ili .
+quantityInput.value = '1'; // Početna vrijednost
+quantityInput.min = 1; // Minimalna vrijednost
+quantityInput.className = 'quantity-input';
+quantityInput.setAttribute('readonly', true); // Dodajemo atribut readonly
+quantityInput.setAttribute('pattern', '[0-9]+([,.][0-9]+)?'); // Postavljamo uzorak za unos brojeva sa , ili .
+quantityInput.setAttribute('inputmode', 'numeric'); // Postavljamo tip unosa na numerički
+li.appendChild(quantityInput);
+
     
                 const addButton = document.createElement('button');
                 addButton.textContent = 'Dodaj u korpu';
