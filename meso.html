@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="hr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ROBOT</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <script src="https://www.paypal.com/sdk/js?client-id=Afzc1IlgRQANkX3NGrGcsvTxA5EtNwUQZeLbuicoNCM-hZxx13uq2LyJESOmeue6FLZJELnCp4xTOoXn"></script>
+    
+
+    
+
+    <script src="index.js"></script>
+
+
+
+</head>
+
+<style>
+    body {
+        margin: 0;
+        padding: 0;
+        font-family: Arial, sans-serif;
+    }
+
+    .header {
+       
+        position: relative;
+        z-index: 1;
+       
+        background-size: cover;
+    }
+
+    .text-animation {
+        min-height: 300px; /* Visina text-animation sekcije */
+        position: relative;
+      
+    }
+
+    .full-background {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 80%;
+        z-index: 0;
+        background: url('images/slikavoce.jpg') no-repeat;
+        background-size: cover;
+        
+       
+    }
+
+
+/* Media upit za mobilne uređaje */
+@media only screen and (max-width: 768px) {
+   
+
+    .full-background {
+        background: url('images/mobBG1.png') no-repeat;
+        background-size: cover;
+        height: 115%;
+       
+    }
+}
+</style>
+
+
+<body>
+      <div class="full-background"></div>
+    <header class="header">
+        <div class="logo">
+            <a href="index.html"><img src="images/logo.png" alt="Logo Cvijećara"></a>
+        </div>
+            
+        </div>
+      
+        
+        <div class="menu-toggle">
+            <div class="menu-line"></div>
+            <div class="menu-line"></div>
+            <div class="menu-line"></div>
+        </div>
+    
+    <nav class="menu">
+        <ul>
+            <li><a href="index.html">HOME</a></li>
+            <li><a href="buketi.html" style="color: red;">AKCIJA</a></li>
+            <li><a href="galerija.html">GALERIJA</a></li>
+            <li><a href="contact.html">KONTAKT</a></li>
+            <li><a href="about.html">O NAMA</a></li>
+            <li><a href="korpa.html">KORPA <i class="fas fa-shopping-cart"></i></a></li>
+
+            <!-- Dodajte ostale opcije menija ovdje -->
+        </ul>
+    </nav>
+</header>
+
+
+    
+
+
+<div class="text-animation" style="text-align: center; ">
+      
+    <div style="text-align: center;">
+        <hr style="border: 1px solid #f0c769; width: 10%; background-image: linear-gradient(90deg, #f0c769 2%, #ffe28b 42%, #d0a651 71%, #ffecb2); -webkit-background-clip: text; background-clip: text; color: transparent; margin-top: 1px; margin-right: 1265px;">
+    
+        <p style="font-weight: bold; margin-top: 1px; margin-right: 850px; font-size: 20px;">VOCE I POVRCE
+    
+        <hr style="border: 1px solid #f0c769; width: 10%; background-image: linear-gradient(90deg, #f0c769 2%, #ffe28b 42%, #d0a651 71%, #ffecb2); -webkit-background-clip: text; background-clip: text; color: transparent; margin-top: -10px; margin-right: 1265px;">
+   
+        <p style="font-weight: bold; margin-top: 1px; margin-right: 850px; font-size: 80px;">30 GODINA <br> TC ROBOT </p>
+
+        
+
+
+        <p style="font-weight: bold; margin-top: -80px; margin-right: 850px; font-size: 20px; color: aliceblue;">Od male cvjecare, do mjesta gdje smo danas  ne bismo mogli to postići bez vas. <br> Tako, dok ove godine slavimo 25 godina, razmišljamo o tome i o svim posebnim trenutcima koje smo podijelili.</p>
+
+        <p style="font-weight: bold; margin-top: 40px; margin-right: 850px; font-size: 20px; color: aliceblue;">Pogledaj kako se mozes pridruziti nasoj proslavi</p>
+
+   
+        <div class="celebration-box">
+            <p>Proslavite sa nama</p>
+          </div>
+
+
+    </div>
+    
+    
+    
+</div>
+</div>
+    
+
+
+<style>
+    @media only screen and (max-width: 768px) {
+        /* Stilovi za mobilne uređaje */
+        .text-animation div {
+            margin-right: -850px; /* Prilagodite margine prema potrebi */
+        }
+
+        .text-animation p {
+            margin-right: -30px; /* Prilagodite margine prema potrebi */
+            margin-top: 10px !important;
+            font-size: 22px !important; /* Dodajte !important kako biste osigurali primjenu veličine fonta */
+        }
+
+        .text-animation hr {
+            margin-right: 960px !important; /* Prilagodite margine prema potrebi */
+        }
+
+        /* Prilagodba za "ANNIVERSARY" - Smanji veličinu fonta */
+        .text-animation p:nth-child(2) {
+            font-size: 16px !important; /* Smanjite veličinu fonta prema potrebi */
+        }
+
+        /* Prilagodba za "200 YEARS" - Povećaj veličinu fonta */
+        .text-animation p:nth-child(4) {
+            font-size: 40px !important; /* Povećajte veličinu fonta prema potrebi */
+        }
+
+        /* Prilagodba za "From a little grocery shop..." - Smanji veličinu fonta */
+        .text-animation p:nth-last-child(3) {
+            font-size: 18px !important; /* Smanjite veličinu fonta prema potrebi */
+        }
+
+        /* Prilagodba za "Previous last paragraph" - Povećaj veličinu fonta */
+        .text-animation p:nth-last-child(2) {
+            font-size: 14px !important; /* Povećajte veličinu fonta prema potrebi */
+        }
+
+        /* Prilagodba za "See how you can join in the celebrations." - Smanji veličinu fonta */
+        .text-animation p:last-child {
+            font-size: 16px !important; /* Smanjite veličinu fonta prema potrebi */
+        }
+    }
+
+    
+</style>
+
+
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const addToCartButtons = document.querySelectorAll('.dodaj-u-korpu');
+            addToCartButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    const productId = this.getAttribute('data-product-id');
+                    const productName = this.parentElement.querySelector('h3').textContent;
+                    let productPrice = parseFloat(this.parentElement.querySelector('.product-price').textContent);
+                    const productQuantity = this.parentElement.querySelector('.quantity-input').value;
+                    const productImageURL = this.parentElement.querySelector('img').src; // Uzmi stvarni URL slike
+    
+                    productPrice *= parseFloat(productQuantity);
+    
+                    const productInfo = {
+                        id: productId,
+                        naziv: productName,
+                        cijena: productPrice.toFixed(2),
+                        količina: productQuantity,
+                        imageUrl: productImageURL // Koristi stvarni URL slike
+                    };
+    
+                    let proizvodiUKorpi = JSON.parse(localStorage.getItem('proizvodiUKorpi')) || [];
+                    proizvodiUKorpi.push(productInfo);
+                    localStorage.setItem('proizvodiUKorpi', JSON.stringify(proizvodiUKorpi));
+    
+                    alert('Proizvod je dodat u korpu!');
+                });
+            });
+        });
+    </script>
+
+    <div id="content">
+        <div class="kategorija">
+            <h2>Voće i Povrće</h2>
+        </div>
+        <h1>Proizvodi u kategoriji Voda</h1>
+        <ul id="product-list"></ul>
+    </div>
+
+    <script type="module">
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js";
+        import { getFirestore, collection, query, where, getDocs } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js";
+    
+        const firebaseConfig = {
+            apiKey: "AIzaSyDiKlHEWyv9tm8Y1yD2-zU5rfxSo_eUmvo",
+            authDomain: "voda-3e56f.firebaseapp.com",
+            projectId: "voda-3e56f",
+            storageBucket: "voda-3e56f.appspot.com",
+            messagingSenderId: "181585863841",
+            appId: "1:181585863841:web:4446f565c29f8b88e2fce0",
+            measurementId: "G-GL6E58EYNY"
+        };
+    
+        const app = initializeApp(firebaseConfig);
+        const db = getFirestore(app);
+    
+        const productList = document.getElementById('product-list');
+    
+        async function fetchProducts() {
+            const q = query(collection(db, 'proizvodi'), where('category', '==', 'meso'));
+            const querySnapshot = await getDocs(q);
+    
+            querySnapshot.forEach((doc) => {
+                const productId = doc.id;
+                const productName = doc.data().name;
+                const productPrice = doc.data().price;
+                const productImageURL = doc.data().imageURL;
+                const productDiscount = doc.data().discount; // Dobivanje informacija o sniženju
+                const productOldPrice = doc.data().oldPrice; // Dobivanje stare cijene
+    
+                const li = document.createElement('li');
+    
+                // Prikazivanje sniženja ako je proizvod na sniženju
+                if (productDiscount) {
+                    const discountBadge = document.createElement('span');
+                    discountBadge.textContent = 'AKCIJA %';
+                    discountBadge.className = 'discount-badge'; // Dodajemo klasu elementu
+                    li.appendChild(discountBadge);
+                }
+    
+                const img = document.createElement('img');
+                img.src = productImageURL;
+                img.alt = productName;
+                img.style.width = '200px';
+                li.appendChild(img);
+    
+                const h3 = document.createElement('h3');
+                h3.textContent = productName;
+                li.appendChild(h3);
+    
+                const price = document.createElement('p');
+                price.textContent = `${productPrice} KM`;
+                price.className = 'product-price';
+                li.appendChild(price);
+    
+                // Dodavanje stare cijene ako je dostupna
+                if (productDiscount && productOldPrice) {
+                    const oldPrice = document.createElement('p');
+                    oldPrice.textContent = `${productOldPrice} KM`;
+                    oldPrice.className = 'old-price';
+                    li.appendChild(oldPrice);
+                }
+    
+                const quantityInput = document.createElement('input');
+                quantityInput.type = 'number';
+                quantityInput.value = 1;
+                quantityInput.min = 1;
+                quantityInput.className = 'quantity-input';
+                li.appendChild(quantityInput);
+    
+                const addButton = document.createElement('button');
+                addButton.textContent = 'Dodaj u korpu';
+                addButton.className = 'dodaj-u-korpu';
+                addButton.setAttribute('data-product-id', productId);
+                li.appendChild(addButton);
+    
+                productList.appendChild(li);
+            });
+    
+            // Add event listeners to the dynamically created buttons
+            document.querySelectorAll('.dodaj-u-korpu').forEach(button => {
+                button.addEventListener('click', function() {
+                    const productId = this.getAttribute('data-product-id');
+                    const productName = this.parentElement.querySelector('h3').textContent;
+                    const productPrice = parseFloat(this.parentElement.querySelector('.product-price').textContent);
+                    const productQuantity = parseInt(this.parentElement.querySelector('.quantity-input').value);
+                    const productImageURL = this.parentElement.querySelector('img').src;
+    
+                    const productInfo = {
+                        id: productId,
+                        naziv: productName,
+                        cijena: productPrice,
+                        ukupnaCijena: productPrice * productQuantity,  // Ukupna cijena
+                        količina: productQuantity,
+                        imageUrl: productImageURL
+                    };
+    
+                    let proizvodiUKorpi = JSON.parse(localStorage.getItem('proizvodiUKorpi')) || [];
+                    proizvodiUKorpi.push(productInfo);
+                    localStorage.setItem('proizvodiUKorpi', JSON.stringify(proizvodiUKorpi));
+    
+                    alert('Proizvod je dodat u korpu!');
+                });
+            });
+        }
+    
+        fetchProducts();
+    </script>
+    
+    
+    
+
+    <style>
+        @media screen and (max-width: 767px) {
+            .product-nox {
+                width: 38%;
+                margin: 1%;
+                float: left;
+                transform: translateY(600px);
+            }
+        }
+    </style>
+
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="social-icons">
+                <a href="https://www.facebook.com/nerina.ba/"><i class="fab fa-facebook"></i></a>
+                <a href="#"><i class="fab fa-viber"></i></a>
+                <a href="https://www.instagram.com/cvjecaranerina/?hl=en"><i class="fab fa-instagram"></i></a>
+            </div>
+            <div class="copyright">
+                &copy; 2023. Sva prava zadržana.
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
