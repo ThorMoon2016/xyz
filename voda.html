@@ -289,10 +289,10 @@ quantityInput.type = 'text'; // Koristimo 'text' umjesto 'number' kako bismo omo
 quantityInput.value = '1'; // Početna vrijednost
 quantityInput.min = 1; // Minimalna vrijednost
 quantityInput.className = 'quantity-input';
-quantityInput.setAttribute('readonly', true); // Dodajemo atribut readonly
 quantityInput.setAttribute('pattern', '[0-9]+([,.][0-9]+)?'); // Postavljamo uzorak za unos brojeva sa , ili .
-quantityInput.setAttribute('inputmode', 'numeric'); // Postavljamo tip unosa na numerički
+quantityInput.setAttribute('inputmode', 'decimal'); // Postavljamo tip unosa na decimalni
 li.appendChild(quantityInput);
+
 
     
                 const addButton = document.createElement('button');
