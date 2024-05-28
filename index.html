@@ -228,11 +228,17 @@
     }
 
      .search-results {
-        top: 49px; /* Povećana vrednost za pomeranje prema dole na mobilnim uređajima */
-        left: 170px;
-        width: 41%;
-        
-    }
+    position: absolute;
+    top: 49px; /* Povećana vrednost za pomeranje prema dole na mobilnim uređajima */
+    left: 170px;
+    width: 41%;
+    background-color: white;
+    border-radius: 4px;
+    max-height: 300px;
+    overflow-y: auto; /* Dodajemo overflow-y */
+    z-index: 1000;
+}
+
 
 
     .result-item {
@@ -252,11 +258,7 @@
 </style>
 
     
-<script>
-document.querySelector('.search-bar input').addEventListener('click', function(event) {
-    event.preventDefault();
-});
-</script>
+
 
 
 <div class="text-animation" style="text-align: center; ">
