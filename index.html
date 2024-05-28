@@ -77,7 +77,14 @@
             <input type="text" id="search-input" placeholder="Pretraži proizvode...">
         </div>
         <div id="search-results" class="search-results"></div>
-        
+
+<script>
+        // Dodajemo event listener koji će spriječiti automatsko pomicanje stranice
+        document.getElementById('search-input').addEventListener('focus', function(event) {
+            window.scrollTo(0, 0); // Poništava automatsko pomicanje stranice na vrh
+        });
+    </script>
+          
         <div class="menu-toggle">
             <div class="menu-line"></div>
             <div class="menu-line"></div>
@@ -225,7 +232,7 @@
     .search-bar input {
         width: calc(80% - 10px);
         margin-right: 5px;
-        touch-action: manipulation; /* Dodajemo touch-action svojstvo */
+   
     }
 
       .search-results {
