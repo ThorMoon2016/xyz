@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Prodaja Cvijeća</title>
+    <title>Robot</title>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
     <script src="https://www.paypal.com/sdk/js?client-id=Afzc1IlgRQANkX3NGrGcsvTxA5EtNwUQZeLbuicoNCM-hZxx13uq2LyJESOmeue6FLZJELnCp4xTOoXn"></script>
@@ -72,12 +72,12 @@
         <div class="logo">
             <a href="index.html"><img src="images/logo.png" alt="Logo Cvijećara"></a>
         </div>
-        <div class="search-box">
-            <div class="search-icon">
-                <i class="fas fa-search"></i>
-            </div>
-            <input type="text" placeholder="Pretraži">
+        
+        <div class="search-bar">
+            <input type="text" id="search-input" placeholder="Pretraži proizvode...">
         </div>
+        <div id="search-results" class="search-results"></div>
+        
         <div class="menu-toggle">
             <div class="menu-line"></div>
             <div class="menu-line"></div>
@@ -100,35 +100,155 @@
         </nav>
     </header>
     
-    <script>
-        // Funkcija za pretraživanje voća i preusmjeravanje na odgovarajući proizvod
-        function searchFruit() {
-            // Dobivanje unosa korisnika iz polja za pretraživanje
-            var searchTerm = document.getElementById('searchInput').value.toLowerCase();
     
-            // Provjera da li se pojam nalazi u HTML elementima sa klasom 'product-nox'
-            var products = document.getElementsByClassName('product-nox');
-            for (var i = 0; i < products.length; i++) {
-                var productName = products[i].getElementsByTagName('h3')[0].innerText.toLowerCase();
-                if (productName.includes(searchTerm)) {
-                    // Ako pronađemo proizvod, preusmjeravamo korisnika na odgovarajući dio stranice
-                    window.location.href = '#' + products[i].id;
-                    return;
-                }
-            }
+    <script type="module">
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js";
+        import { getFirestore, collection, query, getDocs } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js";
     
-            // Ako proizvod nije pronađen, obavijestite korisnika
-            alert('Proizvod nije pronađen.');
-        }
+        const firebaseConfig = {
+            apiKey: "AIzaSyDiKlHEWyv9tm8Y1yD2-zU5rfxSo_eUmvo",
+            authDomain: "voda-3e56f.firebaseapp.com",
+            projectId: "voda-3e56f",
+            storageBucket: "voda-3e56f.appspot.com",
+            messagingSenderId: "181585863841",
+            appId: "1:181585863841:web:4446f565c29f8b88e2fce0",
+            measurementId: "G-GL6E58EYNY"
+        };
     
-        // Dodajemo slušača događaja za tipku Enter u polju za pretraživanje
-        document.getElementById('searchInput').addEventListener('keypress', function (e) {
-            if (e.key === 'Enter') {
-                searchFruit();
+        const app = initializeApp(firebaseConfig);
+        const db = getFirestore(app);
+    
+        const searchInput = document.getElementById('search-input');
+        const searchResults = document.getElementById('search-results');
+    
+        searchInput.addEventListener('input', async () => {
+            const searchTerm = searchInput.value.toLowerCase();
+            searchResults.innerHTML = '';
+    
+            if (searchTerm.length > 0) {
+                const q = query(collection(db, 'proizvodi'));
+                const querySnapshot = await getDocs(q);
+    
+                querySnapshot.forEach((doc) => {
+                    const productName = doc.data().name.toLowerCase();
+                    if (productName.includes(searchTerm)) {
+                        const productId = doc.id;
+                        const productImageURL = doc.data().imageURL;
+                        const productCategory = doc.data().category;
+    
+                        const resultItem = document.createElement('div');
+                        resultItem.className = 'result-item';
+    
+                        const img = document.createElement('img');
+                        img.src = productImageURL;
+                        img.alt = doc.data().name;
+                        resultItem.appendChild(img);
+    
+                        const name = document.createElement('p');
+                        name.textContent = doc.data().name;
+                        resultItem.appendChild(name);
+    
+                        resultItem.addEventListener('click', () => {
+                            window.location.href = `${productCategory}.html`;
+                        });
+    
+                        searchResults.appendChild(resultItem);
+                    }
+                });
             }
         });
     </script>
-    
+
+
+<style>
+
+/* Opšti stilovi */
+
+
+.menu-toggle {
+    cursor: pointer;
+}
+
+.search-bar {
+    display: flex;
+    align-items: center;
+    position: relative;
+}
+
+.search-bar input {
+    padding: 5px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    width: 250px; /* Prilagodite po potrebi */
+}
+
+.search-results {
+    position: absolute;
+    top: 58px; /* Povećana vrednost za pomeranje prema dole */
+    left: 640px;
+    width: 16%;
+    background-color: white;
+    border-radius: 4px;
+    max-height: 300px;
+    overflow-y: auto;
+    z-index: 1000;
+}
+
+.result-item {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    margin: 5px 0;
+    background-color: white;
+    border-bottom: 1px solid #ccc;
+    cursor: pointer;
+}
+
+.result-item img {
+    max-width: 60px;
+    max-height: 60px;
+    margin-right: 10px;
+}
+
+.result-item p {
+    margin: 0;
+    font-size: 16px;
+}
+
+/* Stilovi za mobilne uređaje */
+@media (max-width: 600px) {
+    .search-bar {
+        width: 100%;
+    }
+
+    .search-bar input {
+        width: calc(80% - 10px);
+        margin-right: 5px;
+    }
+
+    .search-results {
+        top: 49px; /* Povećana vrednost za pomeranje prema dole na mobilnim uređajima */
+        left: 170px;
+        width: 41%;
+        
+    }
+
+    .result-item {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .result-item img {
+        margin-bottom: 5px;
+    }
+
+    .result-item p {
+        text-align: left;
+    }
+}
+
+</style>
 
     
 
