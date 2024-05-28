@@ -225,19 +225,15 @@
     .search-bar input {
         width: calc(80% - 10px);
         margin-right: 5px;
+        touch-action: manipulation; /* Dodajemo touch-action svojstvo */
     }
 
-     .search-results {
-    position: absolute;
-    top: 49px; /* Povećana vrednost za pomeranje prema dole na mobilnim uređajima */
-    left: 170px;
-    width: 41%;
-    background-color: white;
-    border-radius: 4px;
-    max-height: 300px;
-    overflow-y: auto; /* Dodajemo overflow-y */
-    z-index: 1000;
-}
+      .search-results {
+        top: 49px; /* Povećana vrednost za pomeranje prema dole na mobilnim uređajima */
+        left: 170px;
+        width: 41%;
+        
+    }
 
 
 
