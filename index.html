@@ -77,14 +77,7 @@
             <input type="text" id="search-input" placeholder="Pretraži proizvode...">
         </div>
         <div id="search-results" class="search-results"></div>
-
- <script>
-        // Dodajemo event listener koji će spriječiti automatsko pomicanje stranice
-        document.getElementById('search-input').addEventListener('click', function(event) {
-            event.preventDefault(); // Spriječava zadano ponašanje klika
-        });
-    </script>
-          
+        
         <div class="menu-toggle">
             <div class="menu-line"></div>
             <div class="menu-line"></div>
@@ -232,22 +225,20 @@
     .search-bar input {
         width: calc(80% - 10px);
         margin-right: 5px;
-   
     }
 
-      .search-results {
+    /* Stilovi za mobilne uređaje */
+@media (max-width: 600px) {
+    .search-results {
+        position: fixed; /* Dodaj position: fixed; samo za mobilne uređaje */
         top: 49px; /* Povećana vrednost za pomeranje prema dole na mobilnim uređajima */
         left: 170px;
         width: 41%;
-        
     }
-
-
-
-    .search-bar input {
-    touch-action: manipulation;
 }
 
+
+  
 
     .result-item {
         flex-direction: column;
@@ -266,7 +257,6 @@
 </style>
 
     
-
 
 
 <div class="text-animation" style="text-align: center; ">
