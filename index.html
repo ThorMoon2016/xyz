@@ -78,10 +78,10 @@
         </div>
         <div id="search-results" class="search-results"></div>
 
-<script>
+ <script>
         // Dodajemo event listener koji će spriječiti automatsko pomicanje stranice
-        document.getElementById('search-input').addEventListener('focus', function(event) {
-            window.scrollTo(0, 0); // Poništava automatsko pomicanje stranice na vrh
+        document.getElementById('search-input').addEventListener('click', function(event) {
+            event.preventDefault(); // Spriječava zadano ponašanje klika
         });
     </script>
           
