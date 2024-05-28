@@ -234,9 +234,6 @@
         
     }
 
-    body {
-    overflow-x: hidden;
-}
 
     .result-item {
         flex-direction: column;
@@ -255,6 +252,11 @@
 </style>
 
     
+<script>
+document.querySelector('.search-bar input').addEventListener('click', function(event) {
+    event.preventDefault();
+});
+</script>
 
 
 <div class="text-animation" style="text-align: center; ">
